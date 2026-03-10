@@ -1,7 +1,7 @@
 # Shubham — Videographer Portfolio
 
 > Cinematic portfolio for a freelance videographer based in Mumbai, India.
-
+c
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=flat&logo=vite)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript)

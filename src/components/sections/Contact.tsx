@@ -3,7 +3,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { SITE } from "@/lib/constants";
 
-type FormStatus = 'idle' | 'success' | 'submitting' | 'error'
+type FormStatus = "idle" | "success";
 
 const CONTACT_LINKS = [
   {
@@ -30,7 +30,6 @@ export function Contact() {
 
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
@@ -100,11 +99,11 @@ export function Contact() {
           </p>
 
           <ul className="flex flex-col list-none">
-            {CONTACT_LINKS.map(({ label, href, icon }) => (
+            {CONTACT_LINKS.map(({ label, href, icon, ...rest }) => (
               <li key={href}>
                 <a
                   href={href}
-                  {...(external
+                  {...("external" in rest && rest.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                   className="
@@ -193,38 +192,19 @@ export function Contact() {
                 required
               />
 
-              {status === "error" && (
-                <p
-                  role="alert"
-                  className="font-body text-[12px] tracking-[0.1em] text-red-400"
+              <MagneticButton type="submit">
+                <span>Send Message</span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
                 >
-                  ✕ {errorMsg} — or email directly at{" "}
-                  <a
-                    href={`mailto:${SITE.email}`}
-                    className="underline hover:text-gold"
-                  >
-                    {SITE.email}
-                  </a>
-                </p>
-              )}
-
-              <MagneticButton type="submit" disabled={status === "submitting"}>
-                <span>
-                  {status === "submitting" ? "Sending…" : "Send Message"}
-                </span>
-                {status !== "submitting" && (
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                )}
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </MagneticButton>
             </form>
           )}

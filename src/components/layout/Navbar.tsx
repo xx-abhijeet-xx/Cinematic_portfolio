@@ -45,7 +45,7 @@ export function Navbar({ loaded }: { loaded: boolean }) {
     e.preventDefault()
     const target = document.querySelector(href)
     if (!target) return
-    const lenis = (window as Record<string, unknown>).__lenis__ as { scrollTo: (el: Element) => void } | undefined
+    const lenis = (window as unknown as Record<string, unknown>).__lenis__ as { scrollTo: (el: Element) => void } | undefined
     if (lenis) {
       lenis.scrollTo(target)
     } else {
