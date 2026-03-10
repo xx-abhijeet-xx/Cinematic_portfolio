@@ -130,7 +130,7 @@ export function Hero({ loaded }: HeroProps) {
 
           {/* Service rows */}
           <ul className="list-none flex flex-col">
-            {SERVICES.map((s, i) => (
+            {STATS.map((s) => (
               <li
                 key={s.num}
                 className="group relative flex items-center gap-5 py-5 border-b border-white/[0.04] transition-all duration-300 hover:pl-3 cursor-default"
