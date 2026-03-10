@@ -5,11 +5,9 @@ export const SITE = {
   tagline:     'Cinematic storytelling for brands, couples, and campaigns that refuse to be ordinary.',
   location:    'Jabalpur, India',
   email:       'hello@shubham.film',          // ← replace
-  phone:       '+91 98765 43210',              // ← replace
-  whatsapp:    '919876543210',                 // ← replace (no + or spaces)
+  phone:       '+917489553039',              // ← replace
+  whatsapp:    '+917489553039',                 // ← replace (no + or spaces)
   instagram:   'https://instagram.com/shubham.lens',
-  youtube:     'https://youtube.com/@shubham',
-  linkedin:    'https://linkedin.com/in/shubham',
   reelUrl:     'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1',              // ← replace from formspree.io
 } as const
 

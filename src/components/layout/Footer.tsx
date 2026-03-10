@@ -2,8 +2,6 @@ import { SITE } from '@/lib/constants'
 
 const SOCIAL = [
   { label: 'Instagram', href: SITE.instagram },
-  { label: 'YouTube',   href: SITE.youtube   },
-  { label: 'LinkedIn',  href: SITE.linkedin   },
 ] as const
 
 export function Footer() {
