@@ -130,9 +130,9 @@ export function Hero({ loaded }: HeroProps) {
 
           {/* Service rows */}
           <ul className="list-none flex flex-col">
-            {STATS.map((s) => (
+            {SERVICES.map((service) => (
               <li
-                key={s.num}
+                key={service.num}
                 className="group relative flex items-center gap-5 py-5 border-b border-white/[0.04] transition-all duration-300 hover:pl-3 cursor-default"
               >
                 {/* Left accent bar */}
@@ -140,22 +140,22 @@ export function Hero({ loaded }: HeroProps) {
 
                 {/* Number */}
                 <span className="font-serif italic text-[13px] text-gold/25 group-hover:text-gold/60 transition-colors duration-300 w-6 shrink-0 text-right">
-                  {s.num}
+                  {service.num}
                 </span>
 
                 {/* Name + sub */}
                 <div className="flex flex-col gap-[3px] flex-1 min-w-0">
                   <span className="font-serif text-[20px] font-light text-ivory/75 group-hover:text-ivory transition-colors duration-300 leading-none">
-                    {s.name}
+                    {service.name}
                   </span>
                   <span className="font-body text-[9px] tracking-[0.2em] uppercase text-gold/25 group-hover:text-gold/40 transition-colors duration-300">
-                    {SUBS[s.name]}
+                    {SUBS[service.name as keyof typeof SUBS]}
                   </span>
                 </div>
 
                 {/* Tag pill */}
                 <span className="font-body text-[8px] tracking-[0.18em] uppercase text-gold/30 border border-gold/10 px-2.5 py-1 shrink-0 group-hover:border-gold/35 group-hover:text-gold/60 transition-all duration-300">
-                  {TAGS[s.name]}
+                  {TAGS[service.name as keyof typeof TAGS]}
                 </span>
 
                 {/* Arrow */}
