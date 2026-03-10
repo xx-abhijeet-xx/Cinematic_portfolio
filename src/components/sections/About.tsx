@@ -56,44 +56,74 @@ export function About() {
         </div>
 
         {/* Image column */}
-        <div ref={imgRef} className="reveal-up order-first md:order-last">
-          <div className="relative">
+        <div ref={imgRef} className="reveal-up order-first md:order-last flex gap-4 items-stretch">
+
+          {/* Vertical cinematic text strip */}
+          <div className="hidden md:flex flex-col items-center justify-between py-2 shrink-0">
+            {/* Thin gold line top */}
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+            {/* Rotated text */}
+            <p
+              aria-hidden="true"
+              className="font-body text-[9px] tracking-[0.45em] uppercase text-gold/40 my-4"
+              style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+            >
+              Videographer · Mumbai · 2020–Present
+            </p>
+            {/* Thin gold line bottom */}
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+          </div>
+
+          {/* Image wrapper — fills full column */}
+          <div className="relative flex-1">
             {/* Corner accents */}
-            <span
-              aria-hidden="true"
-              className="absolute -top-3 -right-3 w-14 h-14 border-t border-r border-gold-dim z-10 pointer-events-none"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute -bottom-3 -left-3 w-14 h-14 border-b border-l border-gold-dim z-10 pointer-events-none"
-            />
+            <span aria-hidden="true" className="absolute -top-3 -right-3 w-14 h-14 border-t border-r border-gold-dim z-10 pointer-events-none" />
+            <span aria-hidden="true" className="absolute -bottom-3 -left-3 w-14 h-14 border-b border-l border-gold-dim z-10 pointer-events-none" />
 
             <LazyImage
-              src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&q=80&auto=format"
-              srcSet="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=75&auto=format 400w, https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&q=80&auto=format 700w"
+              src="https://res.cloudinary.com/dtnjsldz3/image/upload/w_700,q_80,c_fill,g_face,ar_3:4/v1773157597/b87ab299-94ae-46b3-959d-bc7acdb94cf2_zgr4ko.jpg"
+              srcSet="https://res.cloudinary.com/dtnjsldz3/image/upload/w_400,q_75,c_fill,g_face,ar_3:4/v1773157597/b87ab299-94ae-46b3-959d-bc7acdb94cf2_zgr4ko.jpg 400w, https://res.cloudinary.com/dtnjsldz3/image/upload/w_700,q_80,c_fill,g_face,ar_3:4/v1773157597/b87ab299-94ae-46b3-959d-bc7acdb94cf2_zgr4ko.jpg 700w"
               sizes="(max-width: 768px) 100vw, 50vw"
-              alt="Shubham behind the camera on a film set"
-              wrapperClassName="aspect-[3/4] max-w-[420px]"
-              className="grayscale-[15%] contrast-[1.08] hover:scale-[1.04] transition-transform duration-700 ease-out"
+              alt="Shubham — Videographer & Filmmaker, Mumbai"
+              wrapperClassName="aspect-[3/4] w-full"
+              className="grayscale-[20%] contrast-[1.1] brightness-[0.92] transition-all duration-700 ease-out"
             />
 
             {/* Caption overlay */}
             <p className="absolute bottom-5 left-5 font-serif italic text-[12px] text-ivory/50 z-10">
-              Behind the lens, always.
+              The eye behind the lens.
             </p>
 
-            {/* Gradient overlay */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none"
-            />
+            {/* Bottom gradient */}
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
+            {/* Side vignette */}
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
+            {/* Gold tint */}
+            <div aria-hidden="true" className="absolute inset-0 mix-blend-color opacity-[0.06] bg-[#c8a96d] pointer-events-none" />
           </div>
 
-          {/* Location */}
-          <div className="mt-5 flex items-center gap-2.5 font-body text-[11px] tracking-[0.15em] uppercase text-lgrey">
-            <span className="text-gold text-sm">◎</span>
-            Jabalpur · Available nationwide
+          {/* Right side — availability badge + year */}
+          <div className="hidden md:flex flex-col items-center justify-between py-2 shrink-0">
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
+            {/* Availability dot */}
+            <div className="flex flex-col items-center gap-2 my-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              <p
+                className="font-body text-[9px] tracking-[0.4em] uppercase text-gold/40"
+                style={{ writingMode: 'vertical-rl' }}
+              >
+                Available
+              </p>
+            </div>
+            <div className="w-px flex-1 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
           </div>
+
+        </div>
+
+        {/* Location — below image on mobile */}
+        <div className="md:hidden mt-4 flex items-center gap-2.5 font-body text-[11px] tracking-[0.15em] uppercase text-lgrey">
+          <span className="text-gold text-sm">◎</span>
+          Mumbai · Available nationwide
         </div>
 
       </div>

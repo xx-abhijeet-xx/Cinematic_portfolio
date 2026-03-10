@@ -13,9 +13,22 @@ export function Footer() {
         {SITE.name.toUpperCase()}
       </p>
 
-      <p className="font-body text-[10px] tracking-[0.12em] text-mgrey uppercase order-last md:order-none">
-        © {new Date().getFullYear()} · All rights reserved
-      </p>
+      <div className="flex flex-col items-center gap-1.5 order-last md:order-none">
+        <p className="font-body text-[10px] tracking-[0.12em] text-mgrey uppercase">
+          © {new Date().getFullYear()} · All rights reserved
+        </p>
+        <p className="font-body text-[9px] tracking-[0.18em] text-mgrey/40 uppercase">
+          Designed & built by{' '}
+          <a
+            href="https://github.com/xx-abhijeet-xx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold/50 hover:text-gold transition-colors duration-300 cursor-none"
+          >
+            Abhijeet
+          </a>
+        </p>
+      </div>
 
       <nav aria-label="Social links">
         <ul className="flex gap-5 list-none">
