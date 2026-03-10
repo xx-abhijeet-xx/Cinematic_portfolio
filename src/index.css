@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    cursor: none;
+    background-color: #070707;
+    color: #ede9e1;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Touch devices get normal cursor */
+  @media (hover: none) {
+    body { cursor: auto; }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar       { width: 3px; }
+  ::-webkit-scrollbar-track { background: #070707; }
+  ::-webkit-scrollbar-thumb { background: #7a6640; }
+
+  /* Firefox */
+  * { scrollbar-width: thin; scrollbar-color: #7a6640 #070707; }
+
+  /* Remove outline for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) { outline: none; }
+  :focus-visible { outline: 2px solid #c8a96d; outline-offset: 4px; }
+}
+
+/* ── Grain Overlay ────────────────────────────────────── */
+@layer components {
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+  }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #161616 25%,
+      #1f1f1f 50%,
+      #161616 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  /* Section reveal */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(44px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                transform 0.9s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .reveal-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Horizontal line decoration */
+  .deco-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .deco-line::before {
+    content: '';
+    width: 34px;
+    height: 1px;
+    background: #c8a96d;
+    flex-shrink: 0;
+  }
+
+  /* Gold underline on hover */
+  .link-hover {
+    position: relative;
+  }
+
+  .link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #c8a96d;
+    transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .link-hover:hover::after { width: 100%; }
+
+  /* Magnetic element base */
+  .magnetic {
+    display: inline-block;
+    will-change: transform;
+    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  /* Work card aspect */
+  .work-card-aspect { aspect-ratio: 3 / 4; }
+
+  /* Locomotive scroll */
+  html.lenis { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+}
+
+/* ── Utilities ────────────────────────────────────────── */
+@layer utilities {
+  .text-fluid-hero { font-size: clamp(68px, 13vw, 190px); }
+  .text-fluid-h2   { font-size: clamp(38px, 4.5vw, 64px); }
+  .text-fluid-h3   { font-size: clamp(46px, 7vw, 96px); }
+  .text-fluid-xl   { font-size: clamp(20px, 2.8vw, 36px); }
+
+  .leading-hero    { line-height: 0.88; }
+  .leading-heading { line-height: 0.9; }
+
+  /* Overflow clip for text animations */
+  .clip-text { overflow: hidden; }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #c8a96d 0%, #e8d5a3 50%, #c8a96d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
